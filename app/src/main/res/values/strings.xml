@@ -1,74 +1,21 @@
 <resources>
     <string name="app_name">Movie Review</string>
+
     <string name="header_movie_list">Movie List</string>
     <string name="header_movie_detail">Movie Detail</string>
+
     <string name="movie_title">Movie Title</string>
     <string name="movie_release_date">Movie Release Date</string>
     <string name="movie_rating">Movie Rating</string>
     <string name="movie_synopsis">Movie Synopsis</string>
 
-    <array name="movie_poster">
-        <item>@drawable/poster_aquaman</item>
-        <item>@drawable/poster_avengerinfinity</item>
-        <item>@drawable/poster_birdbox</item>
-        <item>@drawable/poster_bumblebee</item>
-        <item>@drawable/poster_dragon</item>
-        <item>@drawable/poster_glass</item>
-        <item>@drawable/poster_mortalengine</item>
-        <item>@drawable/poster_robinhood</item>
-        <item>@drawable/poster_spiderman</item>
-        <item>@drawable/poster_venom</item>
-    </array>
+    <string name="tv_show_title">TV Show Title</string>
+    <string name="tv_show_release_date">TV Show Release Date</string>
+    <string name="tv_show_rating">TV Show Rating</string>
+    <string name="tv_show_synopsis">TV Show Synopsis</string>
 
-    <string-array name="movie_title">
-        <item>Aquaman</item>
-        <item>Avengers: Infinity War</item>
-        <item>Bird Box</item>
-        <item>Bumblebee</item>
-        <item>How to Train Your Dragon: The Hidden World</item>
-        <item>Glass</item>
-        <item>Mortal Engines</item>
-        <item>Robin Hood</item>
-        <item>Spider-Man: Into the Spider-Verse</item>
-        <item>Venom</item>
-    </string-array>
+    <string name="title_movie">Movie</string>
+    <string name="title_tv_show">TV Show</string>
 
-    <string-array name="movie_release_date">
-        <item>December 7, 2018</item>
-        <item>April 25, 2018</item>
-        <item>December 13, 2018</item>
-        <item>December 15, 2018</item>
-        <item>January 3, 2019</item>
-        <item>January 16, 2019</item>
-        <item>November 27, 2018</item>
-        <item>November 21, 2018</item>
-        <item>December 6, 2018</item>
-        <item>September 28, 2018</item>
-    </string-array>
-
-    <string-array name="movie_synopsis">
-        <item>Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orms half-human, half-Atlantean brother and true heir to the throne.</item>
-        <item>As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.</item>
-        <item>Five years after an ominous unseen presence drives most of society to suicide, a survivor and her two children make a desperate bid to reach safety.</item>
-        <item>On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken. When Charlie revives him, she quickly learns this is no ordinary yellow VW bug.</item>
-        <item>As Hiccup fulfills his dream of creating a peaceful dragon utopia, Toothless’ discovery of an untamed, elusive mate draws the Night Fury away. When danger mounts at home and Hiccup’s reign as village chief is tested, both dragon and rider must make impossible decisions to save their kind.</item>
-        <item>In a series of escalating encounters, former security guard David Dunn uses his supernatural abilities to track Kevin Wendell Crumb, a disturbed man who has twenty-four personalities. Meanwhile, the shadowy presence of Elijah Price emerges as an orchestrator who holds secrets critical to both men.</item>
-        <item>Many thousands of years in the future, Earth’s cities roam the globe on huge wheels, devouring each other in a struggle for ever diminishing resources. On one of these massive traction cities, the old London, Tom Natsworthy has an unexpected encounter with a mysterious young woman from the wastelands who will change the course of his life forever.</item>
-        <item>A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown.</item>
-        <item>Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson "Kingpin" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.</item>
-        <item>Investigative journalist Eddie Brock attempts a comeback following a scandal, but accidentally becomes the host of Venom, a violent, super powerful alien symbiote. Soon, he must rely on his newfound powers to protect the world from a shadowy organization looking for a symbiote of their own.</item>
-    </string-array>
-
-    <string-array name="movie_rating">
-        <item>68</item>
-        <item>83</item>
-        <item>70</item>
-        <item>65</item>
-        <item>77</item>
-        <item>65</item>
-        <item>60</item>
-        <item>58</item>
-        <item>84</item>
-        <item>66</item>
-    </string-array>
+    <string name="language_setting">Language Setting</string>
 </resources>
