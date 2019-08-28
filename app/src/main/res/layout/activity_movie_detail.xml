@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        tools:context=".feature.movie.MovieDetailActivity">
 
-        <FrameLayout
+        <ImageView
+            android:id="@+id/iv_poster"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/iv_poster"
-                android:layout_width="match_parent"
-                android:layout_height="250sp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                tools:src="@android:color/darker_gray" />
-
-        </FrameLayout>
+            android:layout_height="250sp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@android:color/darker_gray" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -34,6 +34,10 @@
             android:layout_marginEnd="16dp"
             android:textColor="@color/colorBlack"
             android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_release_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_poster"
             tools:text="@string/movie_title" />
 
         <TextView
@@ -45,6 +49,10 @@
             android:layout_marginBottom="10dp"
             android:lineSpacingMultiplier="1"
             android:textColor="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@id/tv_rating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
             tools:text="@string/movie_release_date" />
 
         <TextView
@@ -62,6 +70,9 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tv_synopsis"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_release_date"
             tools:text="@string/movie_rating" />
 
         <TextView
@@ -74,8 +85,12 @@
             android:layout_marginBottom="8dp"
             android:lineSpacingMultiplier="1"
             android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_rating"
             tools:text="@string/movie_synopsis" />
 
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </ScrollView>
