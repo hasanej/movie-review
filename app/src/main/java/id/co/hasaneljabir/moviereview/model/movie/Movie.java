@@ -1,4 +1,4 @@
-package id.co.hasaneljabir.moviereview.model;
+package id.co.hasaneljabir.moviereview.model.movie;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -67,12 +67,12 @@ public class Movie implements Parcelable {
     public Movie() {
     }
 
-    protected Movie(Parcel in) {
-        this.poster = in.readInt();
-        this.title = in.readString();
-        this.releaseDate = in.readString();
-        this.synopsis = in.readString();
-        this.rating = in.readString();
+    protected Movie(Parcel movieParcel) {
+        this.poster = movieParcel.readInt();
+        this.title = movieParcel.readString();
+        this.releaseDate = movieParcel.readString();
+        this.synopsis = movieParcel.readString();
+        this.rating = movieParcel.readString();
     }
 
     public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
