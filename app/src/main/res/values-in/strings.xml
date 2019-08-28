@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Movie Review</string>
 
+    <string name="home">Beranda</string>
+
     <string name="header_movie_list">Daftar Film</string>
     <string name="header_movie_detail">Detail Film</string>
+    <string name="header_tv_show_list">Daftar Acara TV</string>
+    <string name="header_tv_show_detail">Detail Acara TV</string>
 
     <string name="movie_title">Judul Film</string>
     <string name="movie_release_date">Tanggal Rilis Film</string>

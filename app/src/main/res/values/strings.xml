@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Movie Review</string>
 
+    <string name="home">Home</string>
+
     <string name="header_movie_list">Movie List</string>
     <string name="header_movie_detail">Movie Detail</string>
+    <string name="header_tv_show_list">TV Show List</string>
+    <string name="header_tv_show_detail">TV Show Detail</string>
 
     <string name="movie_title">Movie Title</string>
     <string name="movie_release_date">Movie Release Date</string>
