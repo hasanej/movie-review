@@ -14,7 +14,7 @@ import id.co.hasaneljabir.moviereview.R;
 import id.co.hasaneljabir.moviereview.feature.movie.MovieListFragment;
 import id.co.hasaneljabir.moviereview.feature.tvShow.TvShowListFragment;
 
-public class MovieTvShowActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -43,7 +43,7 @@ public class MovieTvShowActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_tv_show);
+        setContentView(R.layout.activity_home);
         setTitle(R.string.home);
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
