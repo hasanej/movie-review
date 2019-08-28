@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Movie Review</string>
+
+    <string name="header_movie_list">Daftar Film</string>
+    <string name="header_movie_detail">Detail Film</string>
+
+    <string name="movie_title">Judul Film</string>
+    <string name="movie_release_date">Tanggal Rilis Film</string>
+    <string name="movie_rating">Penilaian Film</string>
+    <string name="movie_synopsis">Sinopsis Film</string>
+
+    <string name="tv_show_title">Judul Acara TV</string>
+    <string name="tv_show_release_date">Tanggal Rilis Acara TV</string>
+    <string name="tv_show_rating">Penilaian Acara TV</string>
+    <string name="tv_show_synopsis">Sinopsis Acara TV</string>
+
+    <string name="title_movie">Film</string>
+    <string name="title_tv_show">Acara TV</string>
+
+    <string name="language_setting">Pengaturan Bahasa</string>
+</resources>
