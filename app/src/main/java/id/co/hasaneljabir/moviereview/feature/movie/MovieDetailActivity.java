@@ -1,4 +1,4 @@
-package id.co.hasaneljabir.moviereview.feature.movieDetail;
+package id.co.hasaneljabir.moviereview.feature.movie;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import id.co.hasaneljabir.moviereview.R;
-import id.co.hasaneljabir.moviereview.model.Movie;
+import id.co.hasaneljabir.moviereview.model.movie.Movie;
 
 public class MovieDetailActivity extends AppCompatActivity {
     public static final String MOVIE = "movie";
