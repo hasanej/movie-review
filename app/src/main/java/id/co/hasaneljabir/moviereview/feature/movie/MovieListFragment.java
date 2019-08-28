@@ -1,5 +1,6 @@
 package id.co.hasaneljabir.moviereview.feature.movie;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import id.co.hasaneljabir.moviereview.model.movie.MovieData;
 public class MovieListFragment extends Fragment {
     private RecyclerView rvMovie;
     private ArrayList<Movie> movieList = new ArrayList<>();
+    private MovieAdapter movieAdapter;
 
     public MovieListFragment() {
     }
@@ -39,7 +41,15 @@ public class MovieListFragment extends Fragment {
 
     private void showRecyclerList() {
         rvMovie.setLayoutManager(new LinearLayoutManager(getContext()));
-        MovieAdapter movieAdapter = new MovieAdapter(movieList);
+        movieAdapter = new MovieAdapter(movieList);
         rvMovie.setAdapter(movieAdapter);
+
+        movieAdapter.setOnItemClickCallback(new MovieAdapter.OnItemClickCallback() {
+            public void onItemClicked(Movie movie) {
+                Intent movieDetail = new Intent(getContext(), MovieDetailActivity.class);
+                movieDetail.putExtra(MovieDetailActivity.MOVIE, movie);
+                startActivity(movieDetail);
+            }
+        });
     }
 }

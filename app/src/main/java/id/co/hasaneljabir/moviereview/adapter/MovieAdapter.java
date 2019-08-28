@@ -18,6 +18,11 @@ import id.co.hasaneljabir.moviereview.model.movie.Movie;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     private ArrayList<Movie> listMovie;
+    private OnItemClickCallback onItemClickCallback;
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
 
     public MovieAdapter(ArrayList<Movie> list) {
         this.listMovie = list;
@@ -40,6 +45,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         holder.tvTitle.setText(movie.getTitle());
         holder.tvReleaseDate.setText(movie.getReleaseDate());
         holder.tvSynopsis.setText(movie.getSynopsis());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickCallback.onItemClicked(listMovie.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
@@ -59,6 +71,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             tvSynopsis = itemView.findViewById(R.id.tv_synopsis);
             ivPoster = itemView.findViewById(R.id.iv_poster);
         }
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(Movie data);
     }
 }
 
