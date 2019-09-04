@@ -8,12 +8,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import id.co.hasaneljabir.moviereview.R;
-import id.co.hasaneljabir.moviereview.model.tvShow.TvShow;
+import id.co.hasaneljabir.moviereview.model.tvShow.TvShowItems;
 
 public class TvShowDetailActivity extends AppCompatActivity {
     public static final String TV_SHOW = "tv_show";
-    private String title, rating, releaseDate, synopsis;
-    private int poster;
+    private String poster, title, rating, releaseDate, synopsis;
     private ImageView ivPoster;
     private TextView tvTitle, tvRating, tvReleaseDate, tvSynopsis;
 
@@ -37,16 +36,18 @@ public class TvShowDetailActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        TvShow tvShow = getIntent().getParcelableExtra(TV_SHOW);
-        poster = tvShow.getPoster();
+        TvShowItems tvShow = getIntent().getParcelableExtra(TV_SHOW);
+        poster = tvShow.getPosterPath();
         title = tvShow.getTitle();
-        rating = tvShow.getRating();
+        rating = tvShow.getVoteAverage();
         releaseDate = tvShow.getReleaseDate();
-        synopsis = tvShow.getSynopsis();
+        synopsis = tvShow.getOverview();
     }
 
     private void setData() {
-        Glide.with(this).load(poster).into(ivPoster);
+        Glide.with(this)
+                .load("https://image.tmdb.org/t/p/w342" + poster)
+                .into(ivPoster);
         tvTitle.setText(title);
         tvRating.setText(rating);
         tvReleaseDate.setText(releaseDate);

@@ -14,18 +14,24 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 import id.co.hasaneljabir.moviereview.R;
-import id.co.hasaneljabir.moviereview.model.tvShow.TvShow;
+import id.co.hasaneljabir.moviereview.model.tvShow.TvShowItems;
 
 public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder> {
-    private ArrayList<TvShow> listTvShow;
-    private TvShowAdapter.OnItemClickCallback onItemClickCallback;
+    private ArrayList<TvShowItems> tvShowItems;
+    private OnItemClickCallback onItemClickCallback;
+
+    public void setData(ArrayList<TvShowItems> items) {
+        tvShowItems.clear();
+        tvShowItems.addAll(items);
+        notifyDataSetChanged();
+    }
 
     public void setOnItemClickCallback(TvShowAdapter.OnItemClickCallback onItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback;
     }
 
-    public TvShowAdapter(ArrayList<TvShow> list) {
-        this.listTvShow = list;
+    public TvShowAdapter(ArrayList<TvShowItems> tvShowItems) {
+        this.tvShowItems = tvShowItems;
     }
 
     @NonNull
@@ -37,26 +43,26 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
 
     @Override
     public void onBindViewHolder(@NonNull final TvShowAdapter.TvShowViewHolder holder, int position) {
-        TvShow tvShow = listTvShow.get(position);
+        TvShowItems tvShow = tvShowItems.get(position);
         Glide.with(holder.itemView.getContext())
-                .load(tvShow.getPoster())
+                .load("https://image.tmdb.org/t/p/w185" + tvShow.getPosterPath())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.ivPoster);
         holder.tvTitle.setText(tvShow.getTitle());
         holder.tvReleaseDate.setText(tvShow.getReleaseDate());
-        holder.tvSynopsis.setText(tvShow.getSynopsis());
+        holder.tvSynopsis.setText(tvShow.getOverview());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClickCallback.onItemClicked(listTvShow.get(holder.getAdapterPosition()));
+                onItemClickCallback.onItemClicked(tvShowItems.get(holder.getAdapterPosition()));
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return listTvShow.size();
+        return tvShowItems.size();
     }
 
     class TvShowViewHolder extends RecyclerView.ViewHolder {
@@ -74,6 +80,6 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
     }
 
     public interface OnItemClickCallback {
-        void onItemClicked(TvShow data);
+        void onItemClicked(TvShowItems data);
     }
 }
