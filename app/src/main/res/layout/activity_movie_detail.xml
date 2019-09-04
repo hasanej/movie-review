@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/iv_poster"
             android:layout_width="match_parent"
-            android:layout_height="250sp"
+            android:layout_height="400sp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@id/tv_title"
