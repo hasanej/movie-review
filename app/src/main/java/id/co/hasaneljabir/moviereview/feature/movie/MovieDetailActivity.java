@@ -2,7 +2,6 @@ package id.co.hasaneljabir.moviereview.feature.movie;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,7 +46,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
     private void setData() {
         Glide.with(this)
-                .load("https://image.tmdb.org/t/p/w185" + poster)
+                .load("https://image.tmdb.org/t/p/w342" + poster)
                 .into(ivPoster);
         tvTitle.setText(title);
         tvRating.setText(rating);
