@@ -14,18 +14,24 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 import id.co.hasaneljabir.moviereview.R;
-import id.co.hasaneljabir.moviereview.model.movie.Movie;
+import id.co.hasaneljabir.moviereview.model.movie.MovieItems;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
-    private ArrayList<Movie> listMovie;
+    private ArrayList<MovieItems> movieItems;
     private OnItemClickCallback onItemClickCallback;
+
+    public void setData(ArrayList<MovieItems> items) {
+        movieItems.clear();
+        movieItems.addAll(items);
+        notifyDataSetChanged();
+    }
 
     public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback;
     }
 
-    public MovieAdapter(ArrayList<Movie> list) {
-        this.listMovie = list;
+    public MovieAdapter(ArrayList<MovieItems> movieItems) {
+        this.movieItems = movieItems;
     }
 
     @NonNull
@@ -37,26 +43,26 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(@NonNull final MovieViewHolder holder, int position) {
-        Movie movie = listMovie.get(position);
+        MovieItems movie = movieItems.get(position);
         Glide.with(holder.itemView.getContext())
-                .load(movie.getPoster())
+                .load("https://image.tmdb.org/t/p/w185" + movie.getPosterPath())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.ivPoster);
         holder.tvTitle.setText(movie.getTitle());
         holder.tvReleaseDate.setText(movie.getReleaseDate());
-        holder.tvSynopsis.setText(movie.getSynopsis());
+        holder.tvSynopsis.setText(movie.getOverview());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClickCallback.onItemClicked(listMovie.get(holder.getAdapterPosition()));
+                onItemClickCallback.onItemClicked(movieItems.get(holder.getAdapterPosition()));
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return listMovie.size();
+        return movieItems.size();
     }
 
     class MovieViewHolder extends RecyclerView.ViewHolder {
@@ -74,7 +80,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     public interface OnItemClickCallback {
-        void onItemClicked(Movie data);
+        void onItemClicked(MovieItems data);
     }
 }
 

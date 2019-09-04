@@ -2,18 +2,18 @@ package id.co.hasaneljabir.moviereview.feature.movie;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
 import id.co.hasaneljabir.moviereview.R;
-import id.co.hasaneljabir.moviereview.model.movie.Movie;
+import id.co.hasaneljabir.moviereview.model.movie.MovieItems;
 
 public class MovieDetailActivity extends AppCompatActivity {
     public static final String MOVIE = "movie";
-    private String title, rating, releaseDate, synopsis;
-    private int poster;
+    private String poster, title, rating, releaseDate, synopsis;
     private ImageView ivPoster;
     private TextView tvTitle, tvRating, tvReleaseDate, tvSynopsis;
 
@@ -37,17 +37,17 @@ public class MovieDetailActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        Movie movie = getIntent().getParcelableExtra(MOVIE);
-        poster = movie.getPoster();
-        title = movie.getTitle();
-        rating = movie.getRating();
-        releaseDate = movie.getReleaseDate();
-        synopsis = movie.getSynopsis();
+        MovieItems movieItems = getIntent().getParcelableExtra(MOVIE);
+        poster = movieItems.getPosterPath();
+        title = movieItems.getTitle();
+        rating = movieItems.getVoteAverage();
+        releaseDate = movieItems.getReleaseDate();
+        synopsis = movieItems.getOverview();
     }
 
     private void setData() {
         Glide.with(this)
-                .load(poster)
+                .load("https://image.tmdb.org/t/p/w185" + poster)
                 .into(ivPoster);
         tvTitle.setText(title);
         tvRating.setText(rating);
