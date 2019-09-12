@@ -22,4 +22,6 @@
     <string name="title_tv_show">Acara TV</string>
 
     <string name="language_setting">Pengaturan Bahasa</string>
+    <string name="favorite_movie">Film Favorit</string>
+    <string name="favorite_tv_show">Acara TV Favorit</string>
 </resources>
