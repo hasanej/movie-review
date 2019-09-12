@@ -36,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
                             .commit();
                     return true;
             }
+
             return false;
         }
     };
@@ -62,9 +63,17 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_language_setting) {
-            Intent changeLanguage = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-            startActivity(changeLanguage);
+        switch (item.getItemId()) {
+            case R.id.action_language_setting:
+                Intent changeLanguage = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(changeLanguage);
+                break;
+            case R.id.action_fav_movie:
+
+                break;
+            case R.id.action_fav_tv_show:
+
+                break;
         }
 
         return super.onOptionsItemSelected(item);
