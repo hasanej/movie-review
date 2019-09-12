@@ -65,21 +65,16 @@ public class MovieDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.favorite:
-//                Intent changeLanguage = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-//                startActivity(changeLanguage);
+        if (item.getItemId() == R.id.favorite) {
+            item.setChecked(!item.isChecked());
 
-                item.setChecked(!item.isChecked());
-
-                if (item.isChecked()) {
-                    Toast.makeText(this, "Added to Favorite", Toast.LENGTH_SHORT).show();
-                    item.setIcon(R.drawable.ic_favorite_24dp);
-                } else {
-                    Toast.makeText(this, "Removed from Favorite", Toast.LENGTH_SHORT).show();
-                    item.setIcon(R.drawable.ic_add_to_favorite_24dp);
-                }
-                break;
+            if (item.isChecked()) {
+                Toast.makeText(this, R.string.added_to_favorite, Toast.LENGTH_SHORT).show();
+                item.setIcon(R.drawable.ic_favorite_24dp);
+            } else {
+                Toast.makeText(this, R.string.removed_from_favorite, Toast.LENGTH_SHORT).show();
+                item.setIcon(R.drawable.ic_add_to_favorite_24dp);
+            }
         }
 
         return super.onOptionsItemSelected(item);
