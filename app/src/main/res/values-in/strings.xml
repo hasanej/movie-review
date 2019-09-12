@@ -24,4 +24,6 @@
     <string name="language_setting">Pengaturan Bahasa</string>
     <string name="favorite_movie">Film Favorit</string>
     <string name="favorite_tv_show">Acara TV Favorit</string>
+    <string name="added_to_favorite">Ditambahkan ke Favorit</string>
+    <string name="removed_from_favorite">Dihapus dari Favorit</string>
 </resources>

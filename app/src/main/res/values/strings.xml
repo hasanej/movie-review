@@ -24,4 +24,6 @@
     <string name="language_setting">Language Setting</string>
     <string name="favorite_movie">Favorite Movie</string>
     <string name="favorite_tv_show">Favorite TV Show</string>
+    <string name="added_to_favorite">Added to Favorite</string>
+    <string name="removed_from_favorite">Removed from Favorite</string>
 </resources>
