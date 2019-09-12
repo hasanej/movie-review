@@ -1,4 +1,4 @@
-package id.co.hasaneljabir.moviereview.entity;
+package id.co.hasaneljabir.moviereview.entity.movie;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
