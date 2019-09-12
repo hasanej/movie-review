@@ -2,7 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_fav_movie"
+        android:title="@string/favorite_movie"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_fav_tv_show"
+        android:title="@string/favorite_tv_show"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_language_setting"
         android:title="@string/language_setting"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 </menu>
