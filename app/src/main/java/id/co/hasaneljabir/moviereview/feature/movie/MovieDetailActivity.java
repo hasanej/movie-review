@@ -2,8 +2,11 @@ package id.co.hasaneljabir.moviereview.feature.movie;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -52,5 +55,33 @@ public class MovieDetailActivity extends AppCompatActivity {
         tvRating.setText(rating);
         tvReleaseDate.setText(releaseDate);
         tvSynopsis.setText(synopsis);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.favorite, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.favorite:
+//                Intent changeLanguage = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+//                startActivity(changeLanguage);
+
+                item.setChecked(!item.isChecked());
+
+                if (item.isChecked()) {
+                    Toast.makeText(this, "Added to Favorite", Toast.LENGTH_SHORT).show();
+                    item.setIcon(R.drawable.ic_favorite_24dp);
+                } else {
+                    Toast.makeText(this, "Removed from Favorite", Toast.LENGTH_SHORT).show();
+                    item.setIcon(R.drawable.ic_add_to_favorite_24dp);
+                }
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
