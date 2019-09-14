@@ -1,5 +1,6 @@
 package id.co.hasaneljabir.moviereview.feature;
 
+import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -11,10 +12,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import id.co.hasaneljabir.moviereview.R;
+import id.co.hasaneljabir.moviereview.entity.movie.MovieFavoriteDb;
+import id.co.hasaneljabir.moviereview.entity.tvShow.TvShowFavoriteDb;
+import id.co.hasaneljabir.moviereview.feature.movie.MovieFavActivity;
 import id.co.hasaneljabir.moviereview.feature.movie.MovieListFragment;
+import id.co.hasaneljabir.moviereview.feature.tvShow.TvShowFavActivity;
 import id.co.hasaneljabir.moviereview.feature.tvShow.TvShowListFragment;
 
 public class HomeActivity extends AppCompatActivity {
+    public static MovieFavoriteDb movieFavoriteDb;
+    public static TvShowFavoriteDb tvShowFavoriteDb;
+
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -53,6 +61,12 @@ public class HomeActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             navigation.setSelectedItemId(R.id.navigation_movie);
         }
+
+        movieFavoriteDb = Room.databaseBuilder(getApplicationContext(),
+                MovieFavoriteDb.class, "movie_fav").allowMainThreadQueries().build();
+
+        tvShowFavoriteDb = Room.databaseBuilder(getApplicationContext(),
+                TvShowFavoriteDb.class, "tv_show_fav").allowMainThreadQueries().build();
     }
 
     @Override
@@ -69,10 +83,12 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(changeLanguage);
                 break;
             case R.id.action_fav_movie:
-
+                Intent movieFav = new Intent(this, MovieFavActivity.class);
+                startActivity(movieFav);
                 break;
             case R.id.action_fav_tv_show:
-
+                Intent tvShowFav = new Intent(this, TvShowFavActivity.class);
+                startActivity(tvShowFav);
                 break;
         }
 
