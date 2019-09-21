@@ -1,4 +1,4 @@
-package id.co.hasaneljabir.moviereview.entity.movie;
+package id.co.hasaneljabir.moviereview.entity.db.movieFavorite;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
