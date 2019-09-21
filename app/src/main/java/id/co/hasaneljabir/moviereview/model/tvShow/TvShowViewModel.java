@@ -14,11 +14,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
+import id.co.hasaneljabir.moviereview.BuildConfig;
 
 public class TvShowViewModel extends ViewModel {
-
-    private static final String API_KEY = "45270722f836c8e5f3994dd478fb9d88";
-
+    private static final String API_KEY = BuildConfig.TMDB_API_KEY;
     private MutableLiveData<ArrayList<TvShowItems>> listTvShow = new MutableLiveData<>();
 
     public void setTvShow() {
