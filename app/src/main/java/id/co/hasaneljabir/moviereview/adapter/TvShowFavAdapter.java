@@ -15,7 +15,7 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.List;
 
 import id.co.hasaneljabir.moviereview.R;
-import id.co.hasaneljabir.moviereview.entity.tvShow.TvShowFavorite;
+import id.co.hasaneljabir.moviereview.entity.db.tvShowFavorite.TvShowFavorite;
 
 public class TvShowFavAdapter extends RecyclerView.Adapter<TvShowFavAdapter.ViewHolder> {
     private List<TvShowFavorite> tvShowFavorite;

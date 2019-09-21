@@ -12,20 +12,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import id.co.hasaneljabir.moviereview.R;
-import id.co.hasaneljabir.moviereview.entity.movie.MovieFavoriteDb;
-import id.co.hasaneljabir.moviereview.entity.tvShow.TvShowFavoriteDb;
+import id.co.hasaneljabir.moviereview.entity.db.FavoriteDb;
 import id.co.hasaneljabir.moviereview.feature.movie.MovieFavActivity;
 import id.co.hasaneljabir.moviereview.feature.movie.MovieListFragment;
 import id.co.hasaneljabir.moviereview.feature.tvShow.TvShowFavActivity;
 import id.co.hasaneljabir.moviereview.feature.tvShow.TvShowListFragment;
 
 public class HomeActivity extends AppCompatActivity {
-    public static MovieFavoriteDb movieFavoriteDb;
-    public static TvShowFavoriteDb tvShowFavoriteDb;
+    public static FavoriteDb movieFavoriteDb, tvShowFavoriteDb;
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment;
@@ -63,10 +60,10 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         movieFavoriteDb = Room.databaseBuilder(getApplicationContext(),
-                MovieFavoriteDb.class, "movie_fav").allowMainThreadQueries().build();
+                FavoriteDb.class, "movie_fav").allowMainThreadQueries().build();
 
         tvShowFavoriteDb = Room.databaseBuilder(getApplicationContext(),
-                TvShowFavoriteDb.class, "tv_show_fav").allowMainThreadQueries().build();
+                FavoriteDb.class, "tv_show_fav").allowMainThreadQueries().build();
     }
 
     @Override

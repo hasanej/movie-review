@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import id.co.hasaneljabir.moviereview.R;
-import id.co.hasaneljabir.moviereview.entity.tvShow.TvShowFavorite;
+import id.co.hasaneljabir.moviereview.entity.db.tvShowFavorite.TvShowFavorite;
 import id.co.hasaneljabir.moviereview.model.tvShow.TvShowItems;
 
 import static id.co.hasaneljabir.moviereview.feature.HomeActivity.tvShowFavoriteDb;

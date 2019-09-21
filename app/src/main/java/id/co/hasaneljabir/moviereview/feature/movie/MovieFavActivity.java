@@ -9,7 +9,7 @@ import java.util.List;
 
 import id.co.hasaneljabir.moviereview.R;
 import id.co.hasaneljabir.moviereview.adapter.MovieFavAdapter;
-import id.co.hasaneljabir.moviereview.entity.movie.MovieFavorite;
+import id.co.hasaneljabir.moviereview.entity.db.movieFavorite.MovieFavorite;
 
 import static id.co.hasaneljabir.moviereview.feature.HomeActivity.movieFavoriteDb;
 
