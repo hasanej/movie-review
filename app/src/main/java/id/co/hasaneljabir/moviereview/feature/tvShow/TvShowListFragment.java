@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ public class TvShowListFragment extends Fragment {
 
     private ArrayList<TvShowItems> tvShowItems = new ArrayList<>();
     private TvShowAdapter tvShowAdapter;
+    TvShowViewModel tvShowViewModel;
 
     public TvShowListFragment() {
     }
@@ -38,8 +41,10 @@ public class TvShowListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         RecyclerView rvTvShow = view.findViewById(R.id.rv_tv_show);
         progressBar = view.findViewById(R.id.progress_bar);
+        final EditText etSearchTvShow = view.findViewById(R.id.et_search_tv_show);
+        ImageButton btnSearchTvShow = view.findViewById(R.id.btn_search_tv_show);
 
-        TvShowViewModel tvShowViewModel = ViewModelProviders.of(this).get(TvShowViewModel.class);
+        tvShowViewModel = ViewModelProviders.of(this).get(TvShowViewModel.class);
         tvShowViewModel.getTvShows().observe(this, getTvShow);
 
         tvShowAdapter = new TvShowAdapter(tvShowItems);
@@ -48,14 +53,26 @@ public class TvShowListFragment extends Fragment {
         rvTvShow.setLayoutManager(new LinearLayoutManager(getContext()));
         rvTvShow.setAdapter(tvShowAdapter);
 
-        tvShowViewModel.setTvShow();
-        showLoading(true);
+        tvShowViewModel.setTvShow(getContext());
 
         tvShowAdapter.setOnItemClickCallback(new TvShowAdapter.OnItemClickCallback() {
             public void onItemClicked(TvShowItems tvShowItems) {
                 Intent tvShowDetail = new Intent(getContext(), TvShowDetailActivity.class);
                 tvShowDetail.putExtra(TvShowDetailActivity.TV_SHOW, tvShowItems);
                 startActivity(tvShowDetail);
+            }
+        });
+
+        btnSearchTvShow.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showLoading(true);
+                String query = etSearchTvShow.getText().toString();
+
+                if (query.length() > 0) {
+                    tvShowViewModel.searchTvShow(getContext(), query);
+                } else {
+                    tvShowViewModel.setTvShow(getContext());
+                }
             }
         });
     }
