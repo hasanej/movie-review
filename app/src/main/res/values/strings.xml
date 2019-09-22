@@ -26,4 +26,11 @@
     <string name="favorite_tv_show">Favorite TV Show</string>
     <string name="added_to_favorite">Added to Favorite</string>
     <string name="removed_from_favorite">Removed from Favorite</string>
+
+    <string name="search_hint_movie">Search Movie</string>
+    <string name="search_hint_tv_show">Search TV Show</string>
+
+    <string name="button_search_movie">Button Search Movie</string>
+    <string name="button_search_tv_show">Button Search TV Show</string>
+    <string name="connection_error">Connection Error. Please Check Your Internet Connection.</string>
 </resources>
