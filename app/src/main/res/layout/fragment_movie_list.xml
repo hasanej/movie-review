@@ -5,19 +5,62 @@
     android:layout_height="match_parent"
     tools:context=".feature.movie.MovieListFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <EditText
+                android:id="@+id/et_search_movie"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="2"
+                android:background="@color/colorLightGray"
+                android:hint="@string/search_hint_movie"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
+
+            <ImageButton
+                android:id="@+id/btn_search_movie"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="0.4"
+                android:background="@color/colorPrimary"
+                android:contentDescription="@string/button_search_movie"
+                android:src="@drawable/ic_search_white_24dp" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_movie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_movie" />
+
+    </LinearLayout>
+
     <ProgressBar
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:visibility="gone" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_movie"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_tv_show" />
+        android:background="@color/colorLightGray"
+        android:padding="10dp"
+        android:visibility="visible" />
 
 </RelativeLayout>

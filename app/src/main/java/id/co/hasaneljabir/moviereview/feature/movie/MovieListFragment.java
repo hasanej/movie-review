@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ public class MovieListFragment extends Fragment {
 
     private ArrayList<MovieItems> movieList = new ArrayList<>();
     private MovieAdapter movieAdapter;
+    MovieViewModel movieViewModel;
 
     public MovieListFragment() {
     }
@@ -36,10 +39,12 @@ public class MovieListFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        RecyclerView rvMovie = view.findViewById(R.id.rv_movie);
         progressBar = view.findViewById(R.id.progress_bar);
+        RecyclerView rvMovie = view.findViewById(R.id.rv_movie);
+        final EditText etSearchMovie = view.findViewById(R.id.et_search_movie);
+        ImageButton btnSearchMovie = view.findViewById(R.id.btn_search_movie);
 
-        MovieViewModel movieViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
+        movieViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
         movieViewModel.getMovies().observe(this, getMovie);
 
         movieAdapter = new MovieAdapter(movieList);
@@ -48,14 +53,26 @@ public class MovieListFragment extends Fragment {
         rvMovie.setLayoutManager(new LinearLayoutManager(getContext()));
         rvMovie.setAdapter(movieAdapter);
 
-        movieViewModel.setMovie();
-        showLoading(true);
+        movieViewModel.setMovie(getContext());
 
         movieAdapter.setOnItemClickCallback(new MovieAdapter.OnItemClickCallback() {
             public void onItemClicked(MovieItems movieItems) {
                 Intent movieDetail = new Intent(getContext(), MovieDetailActivity.class);
                 movieDetail.putExtra(MovieDetailActivity.MOVIE, movieItems);
                 startActivity(movieDetail);
+            }
+        });
+
+        btnSearchMovie.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showLoading(true);
+                String query = etSearchMovie.getText().toString();
+
+                if (query.length() > 0) {
+                    movieViewModel.searchMovie(getContext(), query);
+                } else {
+                    movieViewModel.setMovie(getContext());
+                }
             }
         });
     }
