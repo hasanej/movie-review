@@ -14,7 +14,6 @@ import id.co.hasaneljabir.moviereview.entity.db.tvShowFavorite.TvShowFavorite;
 import static id.co.hasaneljabir.moviereview.feature.HomeActivity.tvShowFavoriteDb;
 
 public class TvShowFavActivity extends AppCompatActivity {
-    private TvShowFavAdapter tvShowFavAdapter;
     private RecyclerView tvTvShowFav;
 
     @Override
@@ -32,7 +31,7 @@ public class TvShowFavActivity extends AppCompatActivity {
     private void getMovieFav() {
         List<TvShowFavorite> tvShowFavorite = tvShowFavoriteDb.tvShowFavoriteDao().getFavoriteData();
 
-        tvShowFavAdapter = new TvShowFavAdapter(tvShowFavorite, this);
+        TvShowFavAdapter tvShowFavAdapter = new TvShowFavAdapter(tvShowFavorite, this);
         tvTvShowFav.setAdapter(tvShowFavAdapter);
     }
 }
