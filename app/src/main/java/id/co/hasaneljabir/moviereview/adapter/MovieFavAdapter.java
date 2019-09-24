@@ -1,6 +1,5 @@
 package id.co.hasaneljabir.moviereview.adapter;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,11 +18,9 @@ import id.co.hasaneljabir.moviereview.entity.db.movieFavorite.MovieFavorite;
 
 public class MovieFavAdapter extends RecyclerView.Adapter<MovieFavAdapter.ViewHolder> {
     private List<MovieFavorite> movieFavorite;
-    private Context context;
 
-    public MovieFavAdapter(List<MovieFavorite> movieFavorite, Context context) {
+    public MovieFavAdapter(List<MovieFavorite> movieFavorite) {
         this.movieFavorite = movieFavorite;
-        this.context = context;
     }
 
     @NonNull
@@ -50,11 +47,11 @@ public class MovieFavAdapter extends RecyclerView.Adapter<MovieFavAdapter.ViewHo
         return movieFavorite.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle, tvReleaseDate, tvSynopsis;
         ImageView ivPoster;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvTitle = itemView.findViewById(R.id.tv_title);
