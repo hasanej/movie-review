@@ -31,7 +31,7 @@ public class MovieFavActivity extends AppCompatActivity {
     private void getMovieFav() {
         List<MovieFavorite> movieFavorite = movieFavoriteDb.movieFavoriteDao().getFavoriteData();
 
-        MovieFavAdapter movieFavAdapter = new MovieFavAdapter(movieFavorite, this);
+        MovieFavAdapter movieFavAdapter = new MovieFavAdapter(movieFavorite);
         rvMovieFav.setAdapter(movieFavAdapter);
     }
 }

@@ -25,13 +25,13 @@ public class TvShowFavActivity extends AppCompatActivity {
         tvTvShowFav = findViewById(R.id.rv_fav);
         tvTvShowFav.setLayoutManager(new LinearLayoutManager(this));
 
-        getMovieFav();
+        getTvShowFav();
     }
 
-    private void getMovieFav() {
+    private void getTvShowFav() {
         List<TvShowFavorite> tvShowFavorite = tvShowFavoriteDb.tvShowFavoriteDao().getFavoriteData();
 
-        TvShowFavAdapter tvShowFavAdapter = new TvShowFavAdapter(tvShowFavorite, this);
+        TvShowFavAdapter tvShowFavAdapter = new TvShowFavAdapter(tvShowFavorite);
         tvTvShowFav.setAdapter(tvShowFavAdapter);
     }
 }
