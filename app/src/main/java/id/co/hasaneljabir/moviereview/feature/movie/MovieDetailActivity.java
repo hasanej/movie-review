@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide;
 
 import id.co.hasaneljabir.moviereview.R;
 import id.co.hasaneljabir.moviereview.entity.db.movieFavorite.MovieFavorite;
+import id.co.hasaneljabir.moviereview.feature.widget.FavoriteWidgetProvider;
+import id.co.hasaneljabir.moviereview.helper.Constant;
 import id.co.hasaneljabir.moviereview.model.movie.MovieItems;
 
 import static id.co.hasaneljabir.moviereview.feature.HomeActivity.movieFavoriteDb;
@@ -55,7 +57,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
     private void setData() {
         Glide.with(this)
-                .load("https://image.tmdb.org/t/p/w342" + poster)
+                .load(Constant.POSTER_BASE_URL_342 + poster)
                 .into(ivPoster);
         tvTitle.setText(title);
         tvRating.setText(rating);
@@ -91,13 +93,17 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.favorite) {
             if (item.isChecked()) {
+                item.setChecked(false);
                 movieFavoriteDb.movieFavoriteDao().delete(movieFav);
-                Toast.makeText(this, R.string.removed_from_favorite, Toast.LENGTH_SHORT).show();
+                FavoriteWidgetProvider.updateWidget(this);
                 item.setIcon(R.drawable.ic_add_to_favorite_24dp);
+                Toast.makeText(this, R.string.removed_from_favorite, Toast.LENGTH_SHORT).show();
             } else {
+                item.setChecked(true);
                 movieFavoriteDb.movieFavoriteDao().addData(movieFav);
-                Toast.makeText(this, R.string.added_to_favorite, Toast.LENGTH_SHORT).show();
+                FavoriteWidgetProvider.updateWidget(this);
                 item.setIcon(R.drawable.ic_favorite_24dp);
+                Toast.makeText(this, R.string.added_to_favorite, Toast.LENGTH_SHORT).show();
             }
         }
 
