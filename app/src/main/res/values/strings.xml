@@ -3,9 +3,7 @@
 
     <string name="home">Home</string>
 
-    <string name="header_movie_list">Movie List</string>
     <string name="header_movie_detail">Movie Detail</string>
-    <string name="header_tv_show_list">TV Show List</string>
     <string name="header_tv_show_detail">TV Show Detail</string>
 
     <string name="movie_title">Movie Title</string>
@@ -33,4 +31,7 @@
     <string name="button_search_movie">Button Search Movie</string>
     <string name="button_search_tv_show">Button Search TV Show</string>
     <string name="connection_error">Connection Error. Please Check Your Internet Connection.</string>
+
+    <string name="appwidget_text">Favorite Movie</string>
+    <string name="empty_text">No data. Your favorite movie will be displayed here.</string>
 </resources>

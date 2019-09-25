@@ -3,9 +3,7 @@
 
     <string name="home">Beranda</string>
 
-    <string name="header_movie_list">Daftar Film</string>
     <string name="header_movie_detail">Detail Film</string>
-    <string name="header_tv_show_list">Daftar Acara TV</string>
     <string name="header_tv_show_detail">Detail Acara TV</string>
 
     <string name="movie_title">Judul Film</string>
@@ -33,4 +31,7 @@
     <string name="button_search_movie">Button Pencarian Film</string>
     <string name="button_search_tv_show">Button Pencarian TV Show</string>
     <string name="connection_error">Koneksi Bermasalah. Harap Periksa Koneksi Internet Anda.</string>
+
+    <string name="appwidget_text">Film Favorite</string>
+    <string name="empty_text">Tidak ada data. Film favorit kamu akan ditampilkan disini.</string>
 </resources>
