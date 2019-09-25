@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import id.co.hasaneljabir.moviereview.R;
 import id.co.hasaneljabir.moviereview.model.movie.MovieItems;
+import id.co.hasaneljabir.moviereview.helper.Constant;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     private ArrayList<MovieItems> movieItems;
@@ -45,7 +46,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public void onBindViewHolder(@NonNull final MovieViewHolder holder, int position) {
         MovieItems movie = movieItems.get(position);
         Glide.with(holder.itemView.getContext())
-                .load("https://image.tmdb.org/t/p/w185" + movie.getPosterPath())
+                .load(Constant.POSTER_BASE_URL_185 + movie.getPosterPath())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.ivPoster);
         holder.tvTitle.setText(movie.getTitle());

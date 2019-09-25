@@ -15,6 +15,7 @@ import java.util.List;
 
 import id.co.hasaneljabir.moviereview.R;
 import id.co.hasaneljabir.moviereview.entity.db.movieFavorite.MovieFavorite;
+import id.co.hasaneljabir.moviereview.helper.Constant;
 
 public class MovieFavAdapter extends RecyclerView.Adapter<MovieFavAdapter.ViewHolder> {
     private List<MovieFavorite> movieFavorite;
@@ -34,7 +35,7 @@ public class MovieFavAdapter extends RecyclerView.Adapter<MovieFavAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MovieFavorite movie = movieFavorite.get(position);
         Glide.with(holder.itemView.getContext())
-                .load("https://image.tmdb.org/t/p/w185" + movie.getPosterPath())
+                .load(Constant.POSTER_BASE_URL_185 + movie.getPosterPath())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.ivPoster);
         holder.tvTitle.setText(movie.getTitle());

@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import id.co.hasaneljabir.moviereview.R;
 import id.co.hasaneljabir.moviereview.entity.db.tvShowFavorite.TvShowFavorite;
 import id.co.hasaneljabir.moviereview.model.tvShow.TvShowItems;
+import id.co.hasaneljabir.moviereview.helper.Constant;
 
 import static id.co.hasaneljabir.moviereview.feature.HomeActivity.tvShowFavoriteDb;
 
@@ -55,7 +56,7 @@ public class TvShowDetailActivity extends AppCompatActivity {
 
     private void setData() {
         Glide.with(this)
-                .load("https://image.tmdb.org/t/p/w342" + poster)
+                .load(Constant.POSTER_BASE_URL_342 + poster)
                 .into(ivPoster);
         tvTitle.setText(title);
         tvRating.setText(rating);

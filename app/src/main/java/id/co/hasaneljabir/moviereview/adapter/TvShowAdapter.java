@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import id.co.hasaneljabir.moviereview.R;
 import id.co.hasaneljabir.moviereview.model.tvShow.TvShowItems;
+import id.co.hasaneljabir.moviereview.helper.Constant;
 
 public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowViewHolder> {
     private ArrayList<TvShowItems> tvShowItems;
@@ -45,7 +46,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
     public void onBindViewHolder(@NonNull final TvShowAdapter.TvShowViewHolder holder, int position) {
         TvShowItems tvShow = tvShowItems.get(position);
         Glide.with(holder.itemView.getContext())
-                .load("https://image.tmdb.org/t/p/w185" + tvShow.getPosterPath())
+                .load(Constant.POSTER_BASE_URL_185 + tvShow.getPosterPath())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.ivPoster);
         holder.tvTitle.setText(tvShow.getTitle());

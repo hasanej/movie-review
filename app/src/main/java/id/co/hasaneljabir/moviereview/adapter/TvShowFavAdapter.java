@@ -15,6 +15,7 @@ import java.util.List;
 
 import id.co.hasaneljabir.moviereview.R;
 import id.co.hasaneljabir.moviereview.entity.db.tvShowFavorite.TvShowFavorite;
+import id.co.hasaneljabir.moviereview.helper.Constant;
 
 public class TvShowFavAdapter extends RecyclerView.Adapter<TvShowFavAdapter.ViewHolder> {
     private List<TvShowFavorite> tvShowFavorite;
@@ -34,7 +35,7 @@ public class TvShowFavAdapter extends RecyclerView.Adapter<TvShowFavAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TvShowFavorite tvShow = tvShowFavorite.get(position);
         Glide.with(holder.itemView.getContext())
-                .load("https://image.tmdb.org/t/p/w185" + tvShow.getPosterPath())
+                .load(Constant.POSTER_BASE_URL_185 + tvShow.getPosterPath())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.ivPoster);
         holder.tvTitle.setText(tvShow.getTitle());
