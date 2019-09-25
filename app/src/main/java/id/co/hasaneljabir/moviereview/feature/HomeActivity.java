@@ -15,6 +15,7 @@ import id.co.hasaneljabir.moviereview.R;
 import id.co.hasaneljabir.moviereview.entity.db.FavoriteDb;
 import id.co.hasaneljabir.moviereview.feature.movie.MovieFavActivity;
 import id.co.hasaneljabir.moviereview.feature.movie.MovieListFragment;
+import id.co.hasaneljabir.moviereview.feature.reminder.ReminderActivity;
 import id.co.hasaneljabir.moviereview.feature.tvShow.TvShowFavActivity;
 import id.co.hasaneljabir.moviereview.feature.tvShow.TvShowListFragment;
 
@@ -75,10 +76,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_language_setting:
-                Intent changeLanguage = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-                startActivity(changeLanguage);
-                break;
             case R.id.action_fav_movie:
                 Intent movieFav = new Intent(this, MovieFavActivity.class);
                 startActivity(movieFav);
@@ -86,6 +83,14 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.action_fav_tv_show:
                 Intent tvShowFav = new Intent(this, TvShowFavActivity.class);
                 startActivity(tvShowFav);
+                break;
+            case R.id.action_language_setting:
+                Intent changeLanguage = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(changeLanguage);
+                break;
+            case R.id.action_reminder_setting:
+                Intent reminder = new Intent(this, ReminderActivity.class);
+                startActivity(reminder);
                 break;
         }
 

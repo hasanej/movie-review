@@ -2,6 +2,7 @@
     <string name="app_name">Movie Review</string>
 
     <string name="home">Home</string>
+    <string name="reminder">Reminder</string>
 
     <string name="header_movie_detail">Movie Detail</string>
     <string name="header_tv_show_detail">TV Show Detail</string>
@@ -20,6 +21,7 @@
     <string name="title_tv_show">TV Show</string>
 
     <string name="language_setting">Language Setting</string>
+    <string name="reminder_setting">Reminder Setting</string>
     <string name="favorite_movie">Favorite Movie</string>
     <string name="favorite_tv_show">Favorite TV Show</string>
     <string name="added_to_favorite">Added to Favorite</string>
@@ -34,4 +36,14 @@
 
     <string name="appwidget_text">Favorite Movie</string>
     <string name="empty_text">No data. Your favorite movie will be displayed here.</string>
+
+    <string name="title_daily_reminder">Daily Reminder</string>
+    <string name="desc_daily_reminder">Movie Review will remind you to open this app everyday</string>
+    <string name="title_new_release_reminder">New Release Reminder</string>
+    <string name="desc_new_release_reminder">Movie Review will remind you about newly released movie</string>
+
+    <string name="daily_enabled">Daily Reminder Enabled</string>
+    <string name="daily_disabled">Daily Reminder Disabled</string>
+    <string name="new_release_enabled">New Release Reminder Enabled</string>
+    <string name="new_release_disabled">New Release Reminder Disabled</string>
 </resources>

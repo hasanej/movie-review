@@ -13,9 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".feature.reminder.ReminderActivity"></activity>
 
         <service
-            android:name="id.co.hasaneljabir.moviereview.feature.widget.StackWidgetService"
+            android:name=".feature.widget.StackWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <receiver android:name=".feature.widget.FavoriteWidgetProvider">

@@ -13,4 +13,8 @@
         android:id="@+id/action_language_setting"
         android:title="@string/language_setting"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_reminder_setting"
+        android:title="@string/reminder_setting"
+        app:showAsAction="never" />
 </menu>
