@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="id.co.hasaneljabir.moviereview">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,8 +11,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".feature.tvShow.TvShowFavActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+        <service
+            android:name="id.co.hasaneljabir.moviereview.feature.widget.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <receiver android:name=".feature.widget.FavoriteWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/favorite_widget_info" />
+        </receiver>
+
+        <activity android:name=".feature.tvShow.TvShowFavActivity" />
         <activity android:name=".feature.movie.MovieFavActivity" />
         <activity android:name=".feature.HomeActivity">
             <intent-filter>
