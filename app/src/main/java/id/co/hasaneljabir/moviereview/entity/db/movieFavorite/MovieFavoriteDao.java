@@ -9,17 +9,16 @@ import java.util.List;
 
 @Dao
 public interface MovieFavoriteDao {
+
     @Insert
-    public void addData(MovieFavorite movieFavorite);
+    void addData(MovieFavorite movieFavorite);
 
     @Query("SELECT * FROM movie_favorite")
-    public List<MovieFavorite> getFavoriteData();
+    List<MovieFavorite> getFavoriteData();
 
     @Query("SELECT EXISTS (SELECT 1 FROM movie_favorite WHERE id=:id)")
-    public int isFavorite(int id);
+    int isFavorite(int id);
 
     @Delete
-    public void delete(MovieFavorite movieFavorite);
-
-
+    void delete(MovieFavorite movieFavorite);
 }
