@@ -4,6 +4,8 @@
     package="id.co.hasaneljabir.moviereview">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".feature.reminder.ReminderActivity"></activity>
 
         <service
             android:name=".feature.widget.StackWidgetService"
@@ -29,6 +30,12 @@
                 android:resource="@xml/favorite_widget_info" />
         </receiver>
 
+        <receiver
+            android:name=".feature.reminder.ReminderReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".feature.reminder.ReminderActivity" />
         <activity android:name=".feature.tvShow.TvShowFavActivity" />
         <activity android:name=".feature.movie.MovieFavActivity" />
         <activity android:name=".feature.HomeActivity">
