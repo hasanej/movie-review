@@ -61,6 +61,8 @@ public class ReminderReceiver extends BroadcastReceiver {
         String CHANNEL_ID = "Channel_1";
         String CHANNEL_NAME = "reminderManager channel";
 
+        int requestCode = message.equalsIgnoreCase("EXTRA_MESSAGE") ? 102 : 101;
+
         NotificationManager notificationManagerCompat = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Uri reminderSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
@@ -86,7 +88,7 @@ public class ReminderReceiver extends BroadcastReceiver {
         Notification notification = builder.build();
 
         if (notificationManagerCompat != null) {
-            notificationManagerCompat.notify(101, notification);
+            notificationManagerCompat.notify(requestCode, notification);
         }
     }
 
