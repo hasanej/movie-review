@@ -1,5 +1,7 @@
 package id.co.hasaneljabir.moviereview.feature.movie;
 
+import android.content.ContentValues;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,13 @@ import id.co.hasaneljabir.moviereview.feature.widget.FavoriteWidgetProvider;
 import id.co.hasaneljabir.moviereview.helper.Constant;
 import id.co.hasaneljabir.moviereview.model.movie.MovieItems;
 
+import static id.co.hasaneljabir.moviereview.entity.contentProvider.DatabaseContract.FavoriteMovieColumns.CONTENT_URI;
+import static id.co.hasaneljabir.moviereview.entity.contentProvider.DatabaseContract.FavoriteMovieColumns.OVERVIEW;
+import static id.co.hasaneljabir.moviereview.entity.contentProvider.DatabaseContract.FavoriteMovieColumns.POSTER_PATH;
+import static id.co.hasaneljabir.moviereview.entity.contentProvider.DatabaseContract.FavoriteMovieColumns.RELEASE_DATE;
+import static id.co.hasaneljabir.moviereview.entity.contentProvider.DatabaseContract.FavoriteMovieColumns.TITLE;
+import static id.co.hasaneljabir.moviereview.entity.contentProvider.DatabaseContract.FavoriteMovieColumns.VOTE_AVERAGE;
+import static id.co.hasaneljabir.moviereview.entity.contentProvider.DatabaseContract.FavoriteMovieColumns._ID;
 import static id.co.hasaneljabir.moviereview.feature.HomeActivity.movieFavoriteDb;
 
 public class MovieDetailActivity extends AppCompatActivity {
@@ -83,7 +92,6 @@ public class MovieDetailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         MovieFavorite movieFav = new MovieFavorite();
-
         movieFav.setId(id);
         movieFav.setPosterPath(poster);
         movieFav.setTitle(title);
@@ -91,17 +99,32 @@ public class MovieDetailActivity extends AppCompatActivity {
         movieFav.setReleaseDate(releaseDate);
         movieFav.setOverview(synopsis);
 
+        ContentValues values = new ContentValues();
+        values.put(_ID, id);
+        values.put(TITLE, title);
+        values.put(RELEASE_DATE, releaseDate);
+        values.put(VOTE_AVERAGE, rating);
+        values.put(OVERVIEW, synopsis);
+        values.put(POSTER_PATH, poster);
+
         if (item.getItemId() == R.id.favorite) {
             if (item.isChecked()) {
                 item.setChecked(false);
                 movieFavoriteDb.movieFavoriteDao().delete(movieFav);
                 FavoriteWidgetProvider.updateWidget(this);
+
+                Uri uri = Uri.parse(CONTENT_URI + "/" + id);
+                getContentResolver().delete(uri, null, null);
+
                 item.setIcon(R.drawable.ic_add_to_favorite_24dp);
                 Toast.makeText(this, R.string.removed_from_favorite, Toast.LENGTH_SHORT).show();
             } else {
                 item.setChecked(true);
                 movieFavoriteDb.movieFavoriteDao().addData(movieFav);
                 FavoriteWidgetProvider.updateWidget(this);
+
+                getContentResolver().insert(CONTENT_URI, values);
+
                 item.setIcon(R.drawable.ic_favorite_24dp);
                 Toast.makeText(this, R.string.added_to_favorite, Toast.LENGTH_SHORT).show();
             }

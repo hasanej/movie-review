@@ -7,6 +7,13 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <permission
+        android:name="id.co.hasaneljabir.moviereview.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="id.co.hasaneljabir.moviereview.WRITE_DATABASE"
+        android:protectionLevel="normal" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -47,6 +54,13 @@
         </activity>
         <activity android:name=".feature.movie.MovieDetailActivity" />
         <activity android:name=".feature.tvShow.TvShowDetailActivity" />
+
+        <provider
+            android:name=".entity.contentProvider.FavoriteMovieProvider"
+            android:authorities="id.co.hasaneljabir.moviereview"
+            android:exported="true"
+            android:readPermission="id.co.hasaneljabir.moviereview.READ_DATABASE"
+            android:writePermission="id.co.hasaneljabir.moviereview.WRITE_DATABASE" />
     </application>
 
 </manifest>
