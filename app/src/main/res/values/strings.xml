@@ -3,6 +3,7 @@
 
     <string name="home">Home</string>
     <string name="reminder">Reminder</string>
+    <string name="poster">Poster</string>
 
     <string name="header_movie_detail">Movie Detail</string>
     <string name="header_tv_show_detail">TV Show Detail</string>
@@ -46,4 +47,6 @@
     <string name="daily_disabled">Daily Reminder Disabled</string>
     <string name="new_release_enabled">New Release Reminder Enabled</string>
     <string name="new_release_disabled">New Release Reminder Disabled</string>
+
+    <string name="add_to_favorite">Add to Favorite</string>
 </resources>

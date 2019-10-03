@@ -3,6 +3,7 @@
 
     <string name="home">Beranda</string>
     <string name="reminder">Pengingat</string>
+    <string name="poster">Poster</string>
 
     <string name="header_movie_detail">Detail Film</string>
     <string name="header_tv_show_detail">Detail Acara TV</string>
@@ -46,4 +47,6 @@
     <string name="daily_disabled">Pengingat Harian Dimatikan</string>
     <string name="new_release_enabled">Pengingat Rilis Terbaru Diaktifkan</string>
     <string name="new_release_disabled">Pengingat Rilis Terbaru Dimatikan</string>
+
+    <string name="add_to_favorite">Tambah ke Favorit</string>
 </resources>
