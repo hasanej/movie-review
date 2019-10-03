@@ -5,6 +5,6 @@
         android:id="@+id/favorite"
         android:checkable="true"
         android:icon="@drawable/ic_add_to_favorite_24dp"
-        android:title="Add to Favorite"
+        android:title="@string/add_to_favorite"
         app:showAsAction="always" />
 </menu>
