@@ -27,7 +27,7 @@ public class TvShowListFragment extends Fragment {
 
     private ArrayList<TvShowItems> tvShowItems = new ArrayList<>();
     private TvShowAdapter tvShowAdapter;
-    TvShowViewModel tvShowViewModel;
+    private TvShowViewModel tvShowViewModel;
 
     public TvShowListFragment() {
     }

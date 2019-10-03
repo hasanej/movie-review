@@ -25,11 +25,11 @@ import id.co.hasaneljabir.moviereview.sharedPreference.SharedPreference;
 public class ReminderActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String API_KEY = BuildConfig.TMDB_API_KEY;
-    SharedPreference sharedPreference;
+    private SharedPreference sharedPreference;
 
     private ReminderReceiver reminderReceiver;
 
-    Switch switchDaily, switchNewRelease;
+    private Switch switchDaily, switchNewRelease;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

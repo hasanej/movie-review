@@ -27,7 +27,7 @@ public class MovieListFragment extends Fragment {
 
     private ArrayList<MovieItems> movieList = new ArrayList<>();
     private MovieAdapter movieAdapter;
-    MovieViewModel movieViewModel;
+    private MovieViewModel movieViewModel;
 
     public MovieListFragment() {
     }
